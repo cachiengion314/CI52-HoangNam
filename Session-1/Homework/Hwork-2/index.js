@@ -9,9 +9,20 @@ Output:
 (0, 4), (1, 3)
 `);
 
-// let str = prompt(`Please type some number with ,`);
-// let x = prompt(`Please type x number`);
-// let arr = str.split(`,`);
+let str = prompt(`Please type some number with ,`);
+let x = prompt(`Please type x number`);
+let arr = str.split(`,`);
+
+let convertedArray = convertToNumber(arr);
+
+function convertToNumber(arr) {
+    let convertedArr = [];
+    convertedArr.push(...arr);
+    for (let i = 0; i < arr.length; ++i) {
+        convertedArr[i] = Number(arr[i]);
+    }
+    return convertedArr;
+}
 
 function indsertionSort(arr) {
     let sortedArray = [];
@@ -24,19 +35,6 @@ function indsertionSort(arr) {
             ii--;
         }
         sortedArray[ii + 1] = key;
-    }
-    return sortedArray;
-}
-
-function bubbleSort(arr) {
-    let sortedArray = [];
-    sortedArray.push(...arr);
-    for (let i = 0; i < sortedArray.length - 1; ++i) {
-        for (let ii = i + 1; ii < sortedArray.length; ++ii) {
-            if (sortedArray[i] > sortedArray[ii]) {
-                [sortedArray[i], sortedArray[ii]] = [sortedArray[ii], sortedArray[i]];
-            }
-        }
     }
     return sortedArray;
 }
@@ -79,56 +77,4 @@ function findPosition1(arr = [1, 2, 3, 4, 5], x = 6) {
     console.log(`findPosition1:`, pairStringInArray(allPositionInArrayNumber));
 }
 
-function findPosition2(arr = [1, 2, 3, 4, 5], x = 6) {
-    let arrayNumber = [];
-    arrayNumber.push(...arr);
-    let sortedArray = indsertionSort(arrayNumber);
-    let allPositionInArrayNumber = [];
-
-    for (let i = 0, ii = sortedArray.length - 1; i < ii;) {
-        if (sortedArray[i] + sortedArray[ii] < x) {
-            i++;
-        } else if (sortedArray[i] + sortedArray[ii] > x) {
-            ii--;
-        } else {
-            let indexi, indexii, position;
-            indexi = indexOfNumberInArray(sortedArray[i], arrayNumber);
-            indexii = indexOfNumberInArray(sortedArray[ii], arrayNumber);
-            if (indexi < indexii) {
-                position = [indexi, indexii];
-            } else {
-                position = [indexii, indexi];
-            }
-            allPositionInArrayNumber.push(...position);
-            i++;
-        }
-    }
-    console.log(`findPosition2:`, pairStringInArray(allPositionInArrayNumber));
-}
-
-function findPosition3(arr = [1, 2, 3, 4, 5], x = 6) {
-    let arrayNumber = [];
-    arrayNumber.push(...arr);
-    let hashMap = {};
-    let allPositionInArrayNumber = [];
-    for (let value of arrayNumber) {
-        if (hashMap[value]) {
-            let index1, index2, position;
-            index1 = indexOfNumberInArray(x - value, arrayNumber);
-            index2 = indexOfNumberInArray(value, arrayNumber);
-            if (value > x - value) {
-                position = [index1, index2]
-            } else {
-                position = [index2, index1]
-            }
-            allPositionInArrayNumber.push(...position);
-        } else {
-            hashMap[x - value] = true;
-        }
-    }
-    console.log(`findPosition3:`, pairStringInArray(allPositionInArrayNumber));
-}
-
-findPosition1();
-findPosition2();
-findPosition3();
+findPosition1(convertedArray, x);
