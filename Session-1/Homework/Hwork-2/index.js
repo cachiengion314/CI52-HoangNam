@@ -13,11 +13,26 @@ Output:
 // let x = prompt(`Please type x number`);
 // let arr = str.split(`,`);
 
+function indsertionSort(arr) {
+    let sortedArray = [];
+    sortedArray.push(...arr);
+    for (let i = 1; i < sortedArray.length; ++i) {
+        let ii = i - 1;
+        let key = sortedArray[i];
+        while (ii >= 0 && sortedArray[ii] > key) {
+            sortedArray[ii + 1] = sortedArray[ii];
+            ii--;
+        }
+        sortedArray[ii + 1] = key;
+    }
+    return sortedArray;
+}
+
 function bubbleSort(arr) {
     let sortedArray = [];
     sortedArray.push(...arr);
-    for (let i = 0; i < sortedArray.length - 1; i++) {
-        for (let ii = i + 1; ii < sortedArray.length; ii++) {
+    for (let i = 0; i < sortedArray.length - 1; ++i) {
+        for (let ii = i + 1; ii < sortedArray.length; ++ii) {
             if (sortedArray[i] > sortedArray[ii]) {
                 [sortedArray[i], sortedArray[ii]] = [sortedArray[ii], sortedArray[i]];
             }
@@ -28,7 +43,7 @@ function bubbleSort(arr) {
 
 function pairStringInArray(array) {
     let str = ``;
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; ++i) {
         if (i % 2 != 0 && i < array.length - 1) {
             str += `, ` + array[i] + `), `;
         } else if (i % 2 != 0 && i == array.length - 1) {
@@ -42,7 +57,7 @@ function pairStringInArray(array) {
 
 function indexOfNumberInArray(number, array) {
     let index = 0;
-    for (let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; ++i) {
         if (array[i] == number) {
             index = i;
         }
@@ -54,8 +69,8 @@ function findPosition1(arr = [1, 2, 3, 4, 5], x = 6) {
     let arrayNumber = [];
     arrayNumber.push(...arr);
     let allPositionInArrayNumber = [];
-    for (let i = 0; i < arrayNumber.length - 1; i++) {
-        for (let ii = i + 1; ii < arrayNumber.length; ii++) {
+    for (let i = 0; i < arrayNumber.length - 1; ++i) {
+        for (let ii = i + 1; ii < arrayNumber.length; ++ii) {
             if (arrayNumber[i] + arrayNumber[ii] == x) {
                 allPositionInArrayNumber.push(i, ii);
             }
@@ -67,7 +82,7 @@ function findPosition1(arr = [1, 2, 3, 4, 5], x = 6) {
 function findPosition2(arr = [1, 2, 3, 4, 5], x = 6) {
     let arrayNumber = [];
     arrayNumber.push(...arr);
-    let sortedArray = bubbleSort(arrayNumber);
+    let sortedArray = indsertionSort(arrayNumber);
     let allPositionInArrayNumber = [];
 
     for (let i = 0, ii = sortedArray.length - 1; i < ii;) {
