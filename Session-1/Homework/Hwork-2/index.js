@@ -24,21 +24,6 @@ function convertToNumber(arr) {
     return convertedArr;
 }
 
-function indsertionSort(arr) {
-    let sortedArray = [];
-    sortedArray.push(...arr);
-    for (let i = 1; i < sortedArray.length; ++i) {
-        let ii = i - 1;
-        let key = sortedArray[i];
-        while (ii >= 0 && sortedArray[ii] > key) {
-            sortedArray[ii + 1] = sortedArray[ii];
-            ii--;
-        }
-        sortedArray[ii + 1] = key;
-    }
-    return sortedArray;
-}
-
 function pairStringInArray(array) {
     let str = ``;
     for (let i = 0; i < array.length; ++i) {
@@ -51,16 +36,6 @@ function pairStringInArray(array) {
         }
     }
     return str;
-}
-
-function indexOfNumberInArray(number, array) {
-    let index = 0;
-    for (let i = 0; i < array.length; ++i) {
-        if (array[i] == number) {
-            index = i;
-        }
-    }
-    return index;
 }
 
 function findPosition1(arr = [1, 2, 3, 4, 5], x = 6) {

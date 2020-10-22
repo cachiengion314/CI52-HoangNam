@@ -132,3 +132,97 @@ function findPosition3(arr = [1, 2, 3, 4, 5], x = 6) {
 findPosition1();
 findPosition2();
 findPosition3();
+
+
+
+// quick sort
+
+var items = [5, 3, 7, 6, 2, 9];
+
+function swap(items, leftIndex, rightIndex) {
+    var temp = items[leftIndex];
+    items[leftIndex] = items[rightIndex];
+    items[rightIndex] = temp;
+}
+
+function partition(items, left, right) {
+    var pivot = items[Math.floor((right + left) / 2)], //middle element
+        i = left, //left pointer
+        j = right; //right pointer
+    while (i <= j) {
+        while (items[i] < pivot) {
+            i++;
+        }
+        while (items[j] > pivot) {
+            j--;
+        }
+        if (i <= j) {
+            swap(items, i, j); //sawpping two elements
+            i++;
+            j--;
+        }
+    }
+    return i;
+}
+
+function quickSort(items, left, right) {
+    var index;
+    if (items.length > 1) {
+        index = partition(items, left, right); //index returned from partition
+        if (left < index - 1) { //more elements on the left side of the pivot
+            quickSort(items, left, index - 1);
+        }
+        if (index < right) { //more elements on the right side of the pivot
+            quickSort(items, index, right);
+        }
+    }
+    return items;
+}
+// first call to quick sort
+var sortedArray = quickSort(items, 0, items.length - 1);
+console.log(sortedArray); //prints [2,3,5,6,7,9]
+
+
+/// rewrite
+
+function myOwnSwap(items, leftIndex, rightIndex) {
+    temp = items[leftIndex];
+    items[leftIndex] = items[rightIndex];
+    items[rightIndex] = temp;
+}
+
+function myOwnPartition(items, leftIndex, rightIndex) {
+    var pivotValue = items[Math.floor((rightIndex + leftIndex) / 2)]; //middle element
+    let i = leftIndex;
+    let ii = rightIndex;
+    while (i <= ii) {
+        while (items[i] < pivotValue) {
+            i++;
+        }
+        while (items[ii] > pivotValue) {
+            ii--;
+        }
+        if (i <= ii) {
+            myOwnSwap(items[i], items[ii]);
+            i++;
+            ii--;
+        }
+    }
+    return i;
+}
+
+function myOwnQuickSort(items, leftIndex, rightIndex) {
+    let partitionIndex = myOwnPartition(items, leftIndex, rightIndex);
+
+    if (leftIndex < partitionIndex - 1) {
+        myOwnQuickSort(items, leftIndex, partitionIndex - 1);
+    }
+    if (partitionIndex < rightIndex) {
+        myOwnQuickSort(items, partitionIndex, rightIndex);
+    }
+
+    return items;
+}
+
+var sortedArray2 = myOwnQuickSort(items, 0, items.length - 1);
+console.log(`myOwnQuickSort:`, sortedArray2); //prints [2,3,5,6,7,9]
