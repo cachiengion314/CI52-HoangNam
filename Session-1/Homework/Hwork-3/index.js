@@ -37,11 +37,28 @@ console.log(!x);
 
 let $no = document.getElementById(`no`); // this $ is dom
 let $answers = document.getElementById(`answers`);
+
 // overide event
 $no.onmouseenter += function() {
 
 };
 // add event
+// $no.addEventListener(`mouseenter`, () => {
+//     $answers.classList.toggle(`reverse`);
+// });
+let opacityValue = 100;
+
+function getOpacityStrValue() {
+    return opacityValue + `%`;
+}
+
+function randomFromAToB(a, b) {
+    return Math.floor(Math.random() * (b - a)) + a;
+}
 $no.addEventListener(`mouseenter`, () => {
-    $answers.classList.toggle(`reverse`);
+    $no.style.position = `absolute`;
+    opacityValue -= 10;
+    $no.style.opacity = getOpacityStrValue();
+    $no.style.left = `${randomFromAToB(0, screen.width - 150)}px`;
+    $no.style.top = `${randomFromAToB(0, screen.height - 80)}px`;
 });

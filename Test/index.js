@@ -133,11 +133,9 @@ findPosition1();
 findPosition2();
 findPosition3();
 
-
-
 // quick sort
 
-var items = [5, 3, 7, 6, 2, 9];
+var items = [5, 6, 8, 6, 9, 2, 6];
 
 function swap(items, leftIndex, rightIndex) {
     var temp = items[leftIndex];
@@ -182,17 +180,18 @@ function quickSort(items, left, right) {
 var sortedArray = quickSort(items, 0, items.length - 1);
 console.log(sortedArray); //prints [2,3,5,6,7,9]
 
+/// rewrite 
 
-/// rewrite
+let myOwnArray = [5, 6, 8, 6, 9, 2, 6];
 
 function myOwnSwap(items, leftIndex, rightIndex) {
-    temp = items[leftIndex];
+    let temp = items[leftIndex];
     items[leftIndex] = items[rightIndex];
     items[rightIndex] = temp;
 }
 
 function myOwnPartition(items, leftIndex, rightIndex) {
-    var pivotValue = items[Math.floor((rightIndex + leftIndex) / 2)]; //middle element
+    var pivotValue = items[Math.floor((rightIndex + leftIndex) / 2)];
     let i = leftIndex;
     let ii = rightIndex;
     while (i <= ii) {
@@ -203,7 +202,7 @@ function myOwnPartition(items, leftIndex, rightIndex) {
             ii--;
         }
         if (i <= ii) {
-            myOwnSwap(items[i], items[ii]);
+            myOwnSwap(items, i, ii);
             i++;
             ii--;
         }
@@ -224,5 +223,5 @@ function myOwnQuickSort(items, leftIndex, rightIndex) {
     return items;
 }
 
-var sortedArray2 = myOwnQuickSort(items, 0, items.length - 1);
+let sortedArray2 = myOwnQuickSort(myOwnArray, 0, myOwnArray.length - 1);
 console.log(`myOwnQuickSort:`, sortedArray2); //prints [2,3,5,6,7,9]
