@@ -1,0 +1,23 @@
+Một module là một file. Hay là "One script is one module". 
+Những module có thể load nhiều function bởi hai keywords đặc biệt đó là Import và Export. 
+Và đặc biệt module này có thể gọi và sử dụng một module khác. 
+
+ES6 cung cấp cho chúng ta import (nhập), export (xuất) các functions, 
+biến từ module này sang module khác và sử dụng nó trong các file khác. 
+Nói một cách chính xác theo thuật ngữ React, người ta có thể sử dụng các stateless 
+components trong các components khác bằng cách export các 
+components từ các modules tương ứng và sử dụng nó trong các tệp khác.
+
+Name export:
+Trong JavaScript ES6, named export được sử dụng để xuất nhiều thứ từ một module 
+bằng cách thêm keyword export vào khai báo của chúng. 
+Những thứ được export sẽ được phân biệt bằng tên. 
+Sau đó import những thứ chúng ta cần sử dụng bằng cách bao quanh chúng cặp dấu ngoặc nhọn { }. 
+Tên của module đã nhập phải giống với tên của module đã xuất.
+
+Import:
+Để import một module vào một script thì bạn có thể sử dụng import. 
+Ví dụ chúng ta có những module dùng named export thì bạn có thể import như thế này.
+
+// ----main.js---
+import { addTwoNumbers, students } from 'util';

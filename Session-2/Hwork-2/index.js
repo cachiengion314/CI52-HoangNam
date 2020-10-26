@@ -14,16 +14,31 @@ class Company {
     }
 
     showAllEmployees = () => {
-        console.log(``);
+        for (let i = 0; i < this.employees.length; i++) {
+            console.log(this.employees[i]);
+        }
+
     }
     showCEO() {
-        console.log(``);
+        this.employees.map((person) => {
+            if (person.strategy != undefined) {
+                console.log(person);
+            }
+        });
     }
     showManagers() {
-        console.log(``);
+        this.employees.map((person) => {
+            if (person.managementStyle != undefined) {
+                console.log(person);
+            }
+        });
     }
     showStaffs() {
-        console.log(``);
+        this.employees.map((person) => {
+            if (person.experience != undefined) {
+                console.log(person);
+            }
+        });
     }
 }
 class Employee {
@@ -39,7 +54,7 @@ class Employee {
         this.address = address;
     }
     about = () => {
-        console.log(``);
+        console.log(`Hello, my name is ${this.name}`);
     }
 }
 class CEO extends Employee {
@@ -66,22 +81,27 @@ class Staff extends Employee {
 }
 
 let myCompany = new Company(`TNHH Xuan Van`, 2020, `Viet Nam`, `Nha hang`, [
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
+    new Staff(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 1),
+    new Staff(`Nguyen Duy Dao`, `female`, 23, `43 Le Duyen`, 2),
+    new Staff(`Nguyen Duy Phan`, `male`, 22, `43 Le Duyen`, 5),
+    new Staff(`Nguyen Duy Nam`, `male`, 27, `43 Le Duyen`, 2),
+    new Staff(`Nguyen Duy Tung`, `male`, 25, `43 Le Duyen`, 1),
+    new Staff(`Nguyen Duy Hao`, `female`, 24, `43 Le Duyen`, 1),
+    new Staff(`Nguyen Duy Phuc`, `male`, 27, `43 Le Duyen`, 1),
+    new Staff(`Nguyen Duy Phuong`, `female`, 27, `43 Le Duyen`, 2),
+    new Staff(`Nguyen Duy Anh`, `male`, 37, `43 Le Duyen`, 2),
+    new Staff(`Nguyen Duy Phi`, `male`, 33, `43 Le Duyen`, 1),
 
-    new Manager(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Manager(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Manager(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Manager(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
-    new Manager(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
+    new Manager(`Nguyen Duy Xuan`, `male`, 31, `43 Le Duyen`, `hard manager style`),
+    new Manager(`Nguyen Duy Nham`, `male`, 32, `43 Le Duyen`, `easy manager style`),
+    new Manager(`Nguyen Duy Chi`, `female`, 27, `43 Le Duyen`, `hard manager style`),
+    new Manager(`Nguyen Duy Do`, `female`, 26, `43 Le Duyen`, `normal manager style`),
+    new Manager(`Nguyen Duy Linh`, `female`, 37, `43 Le Duyen`, `normal manager style`),
 
-    new CEO(`Nguyen Duy Phu`, `male`, 27, `43 Le Duyen`, 2),
+    new CEO(`Nguyen Duy Kiet`, `male`, 41, `43 Le Duyen`, `Toc chien, toc thang`),
 ]);
+
+myCompany.showAllEmployees();
+myCompany.showCEO();
+myCompany.showManagers();
+myCompany.showStaffs();
