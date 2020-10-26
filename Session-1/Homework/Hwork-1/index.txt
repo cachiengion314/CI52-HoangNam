@@ -1,5 +1,4 @@
-4 tính chất của lập trình hướng đối tượng trong Java
-oop
+4 tính chất của lập trình hướng đối tượng trong Java oop
 
 Tính đóng gói (encapsulation) và che giấu thông tin (information hiding)
 

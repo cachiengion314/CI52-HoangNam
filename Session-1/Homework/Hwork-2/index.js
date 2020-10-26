@@ -42,7 +42,7 @@ function findPosition1(arr = [1, 2, 3, 4, 5], x = 6) {
     let arrayNumber = [];
     arrayNumber.push(...arr);
     let allPositionInArrayNumber = [];
-    for (let i = 0; i < arrayNumber.length - 1; ++i) {
+    for (let i = 0; i < arrayNumber.length; ++i) {
         for (let ii = i + 1; ii < arrayNumber.length; ++ii) {
             if (arrayNumber[i] + arrayNumber[ii] == x) {
                 allPositionInArrayNumber.push(i, ii);

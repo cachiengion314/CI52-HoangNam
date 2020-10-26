@@ -135,7 +135,7 @@ findPosition3();
 
 // quick sort
 
-var items = [5, 6, 8, 6, 9, 2, 6];
+var items = [4, 1, 2, 3, 9, 7];
 
 function swap(items, leftIndex, rightIndex) {
     var temp = items[leftIndex];
@@ -178,9 +178,9 @@ function quickSort(items, left, right) {
 }
 // first call to quick sort
 var sortedArray = quickSort(items, 0, items.length - 1);
-console.log(sortedArray); //prints [2,3,5,6,7,9]
+console.log(`sorted internet array:`, sortedArray); //prints [2,3,5,6,7,9]
 
-/// rewrite 
+/// rewrite 1
 
 let myOwnArray = [5, 6, 8, 6, 9, 2, 6];
 
@@ -213,15 +213,15 @@ function myOwnPartition(items, leftIndex, rightIndex) {
 function myOwnQuickSort(items, leftIndex, rightIndex) {
     let partitionIndex = myOwnPartition(items, leftIndex, rightIndex);
 
+
     if (leftIndex < partitionIndex - 1) {
         myOwnQuickSort(items, leftIndex, partitionIndex - 1);
     }
     if (partitionIndex < rightIndex) {
         myOwnQuickSort(items, partitionIndex, rightIndex);
     }
-
     return items;
 }
 
 let sortedArray2 = myOwnQuickSort(myOwnArray, 0, myOwnArray.length - 1);
-console.log(`myOwnQuickSort:`, sortedArray2); //prints [2,3,5,6,7,9]
+console.log(`myOwnQuickSort:`, sortedArray2);
