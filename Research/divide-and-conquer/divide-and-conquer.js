@@ -1,3 +1,60 @@
+// select sort
+function selectSort(array = [21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) {
+    let sortedArr = [];
+    sortedArr.push(...array);
+    for (let i = 0; i < sortedArr.length - 1; ++i) {
+        minValue = sortedArr[i];
+        minValueIndex = i;
+        for (let j = i + 1; j < sortedArr.length; ++j) {
+            if (minValue > sortedArr[j]) {
+                minValue = sortedArr[j];
+                minValueIndex = j;
+            }
+        }
+        if (i != minValueIndex) {
+            [sortedArr[i], sortedArr[minValueIndex]] = [sortedArr[minValueIndex], sortedArr[i]];
+        }
+    }
+    return sortedArr;
+}
+
+// my own version of heap sort
+function heapSwap(array, indexA, indexB) {
+    let temp = array[indexA];
+    array[indexA] = array[indexB];
+    array[indexB] = temp;
+}
+
+function heapRoot(array, arrayLength, i) {
+    let leftIndex = 2 * i + 1;
+    let rightIndex = 2 * i + 2;
+    let max = i;
+    if (array[leftIndex] > array[max] && leftIndex < arrayLength) {
+        max = leftIndex;
+    }
+    if (array[rightIndex] > array[max] && rightIndex < arrayLength) {
+        max = rightIndex;
+    }
+    if (max != i) {
+        heapSwap(array, i, max);
+        heapRoot(array, arrayLength, max);
+    }
+}
+
+function heapSort(array = [21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) {
+    let arrayLength = array.length;
+    let middleIndex = Math.floor(arrayLength / 2);
+
+    for (let i = middleIndex; i >= 0; --i) {
+        heapRoot(array, arrayLength, i);
+    }
+    for (let i = arrayLength - 1; i >= 0; --i) {
+        heapSwap(array, 0, i);
+        arrayLength--;
+        heapRoot(array, arrayLength, 0);
+    }
+    return array;
+}
 // merge sort
 function merge2ArrayForMergeSort(leftArr, rightArr) {
     let sortedArray = [];
@@ -106,7 +163,9 @@ function insertSortWithFilter(array, filterCall) {
 }
 
 function javascriptSort(array = [21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) {
-    return array.sort((a, b) => {
+    let sortedArr = [];
+    sortedArr.push(...array);
+    return sortedArr.sort((a, b) => {
         return a - b;
     });
 }
@@ -122,6 +181,8 @@ console.log(`merge sort`, mergeSort());
 console.log(`quick sort`, quickSort());
 console.log(`bubble sort`, bubbleSort());
 console.log(`insert sort`, insertSort());
+console.log(`heap sort`, heapSort());
+console.log(`select sort`, selectSort());
 console.log(`javascript sort`, javascriptSort());
 
 function findTheBestSort() {
@@ -130,6 +191,8 @@ function findTheBestSort() {
         { name: `quickSort`, timer: measureExecutionTime(quickSort) },
         { name: `bubbleSort`, timer: measureExecutionTime(bubbleSort) },
         { name: `insertSort`, timer: measureExecutionTime(insertSort) },
+        { name: `heapSort`, timer: measureExecutionTime(heapSort) },
+        { name: `selectSort`, timer: measureExecutionTime(selectSort) },
         { name: `javascriptSort`, timer: measureExecutionTime(javascriptSort) },
     ]
     insertSortWithFilter(array, (thing) => {
