@@ -1,3 +1,22 @@
+// shell sort 
+function shellSort(array = [21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) {
+    let sortedArray = [];
+    sortedArray.push(...array);
+    let middleIndex = Math.floor(sortedArray.length / 2);
+    while (middleIndex > 0) {
+        for (let i = middleIndex; i < sortedArray.length; ++i) {
+            let keyValue = sortedArray[i];
+            let tempIndex = i;
+            while (tempIndex >= middleIndex && keyValue < sortedArray[tempIndex - middleIndex]) {
+                sortedArray[tempIndex] = sortedArray[tempIndex - middleIndex];
+                tempIndex = tempIndex - middleIndex;
+            }
+            sortedArray[tempIndex] = keyValue;
+        }
+        middleIndex = Math.floor(middleIndex / 2);
+    }
+    return sortedArray;
+}
 // select sort
 function selectSort(array = [21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]) {
     let sortedArr = [];
@@ -17,7 +36,6 @@ function selectSort(array = [21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 
     }
     return sortedArr;
 }
-
 // my own version of heap sort
 function heapSwap(array, indexA, indexB) {
     let temp = array[indexA];
@@ -83,7 +101,6 @@ function mergeSort(array = [21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8
 
     return merge2ArrayForMergeSort(mergeSort(leftArr), mergeSort(rightArr));
 }
-
 // my own version of quick sort
 function merge2Array(leftArr, rightArr) {
     let finalArray = [];
@@ -176,13 +193,13 @@ function measureExecutionTime(callback) {
     let endTimer = window.performance.now();
     return endTimer - startTimer;
 }
-
 console.log(`merge sort`, mergeSort());
 console.log(`quick sort`, quickSort());
 console.log(`bubble sort`, bubbleSort());
 console.log(`insert sort`, insertSort());
 console.log(`heap sort`, heapSort());
 console.log(`select sort`, selectSort());
+console.log(`shell sort`, shellSort());
 console.log(`javascript sort`, javascriptSort());
 
 function findTheBestSort() {
@@ -193,6 +210,7 @@ function findTheBestSort() {
         { name: `insertSort`, timer: measureExecutionTime(insertSort) },
         { name: `heapSort`, timer: measureExecutionTime(heapSort) },
         { name: `selectSort`, timer: measureExecutionTime(selectSort) },
+        { name: `shellSort`, timer: measureExecutionTime(shellSort) },
         { name: `javascriptSort`, timer: measureExecutionTime(javascriptSort) },
     ]
     insertSortWithFilter(array, (thing) => {
