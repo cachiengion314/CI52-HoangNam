@@ -1,0 +1,9 @@
+Khái niệm
+Web component là tập hợp các Web APIs cho phép chúng ta tạo ra một thẻ HTML riêng, 
+mang các đặc tính riêng, đóng gói, có thể tái sử dụng. Web component được xây dựng trên 
+chuẩn web hiện tại, vì thế đang (và sẽ) có thể hoạt động trên tất cả các trình duyệt, 
+có thể tương thích với tất cả các library và framework Javascript có thể làm việc với HTML. 
+Ứng dụng
+Việc ứng dụng Web component không có ý nghĩa nhiều khi sử dụng với những framework js nổi tiếng như Angular, React, 
+... vì chúng đều có hệ thống quản lý component riêng, tuy nhiên sẽ có ý nghĩa lớn trong việc giúp các framework 
+có tiếng nói chung trong việc tái sử dụng component xuyên suốt nền tảng và sử dụng component bên thứ 3.

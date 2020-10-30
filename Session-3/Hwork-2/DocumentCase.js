@@ -1,5 +1,3 @@
-import { Document } from "./Document.js";
-
 export class DocumentCase {
     id;
     name;
