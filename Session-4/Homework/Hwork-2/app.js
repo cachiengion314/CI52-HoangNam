@@ -1,27 +1,27 @@
 import Person from "./Person.js";
 
-class CheckedNode {
-    constructor() {
-        this.checkedNodes = [];
-    }
-    has(node) {
-        let hasNode = false;
-        for (let value of this.checkedNodes) {
-            if (node.phoneNumber == value.phoneNumber) {
-                hasNode = true;
-            }
-        }
-        return hasNode;
-    }
-    add(node) {
-        if (!this.has(node)) {
-            this.checkedNodes.push(node);
-        }
-    }
-    show() {
-        return this.checkedNodes;
-    }
-}
+// class CheckedNode {
+//     constructor() {
+//         this.checkedNodes = [];
+//     }
+//     has(node) {
+//         let hasNode = false;
+//         for (let value of this.checkedNodes) {
+//             if (node.phoneNumber == value.phoneNumber) {
+//                 hasNode = true;
+//             }
+//         }
+//         return hasNode;
+//     }
+//     add(node) {
+//         if (!this.has(node)) {
+//             this.checkedNodes.push(node);
+//         }
+//     }
+//     show() {
+//         return this.checkedNodes;
+//     }
+// }
 
 let trang = new Person(`Nguyen Minh Trang`, 23, `0978155603`);
 let duc = new Person(`Doan Nguyen Duc`, 27, `0878155603`);
@@ -39,6 +39,23 @@ soicialMap.set(tung, [duc, trung, khoan, minh]);
 soicialMap.set(mi, [duc, khoan]);
 soicialMap.set(khoan, [mi, tung]);
 soicialMap.set(minh, [tung]);
+
+// let visited = new CheckedNode();
+
+// depthFirstSearch(trang, soicialMap, (person) => {
+//     console.log(`person name:`, person.name);
+// });
+
+// function depthFirstSearch(person, soicialMap, callback) {
+//     // let visited = new CheckedNode();
+//     visited.add(person);
+//     callback(person);
+//     for (let friend of soicialMap.get(person)) {
+//         if (!visited.has(friend)) {
+//             depthFirstSearch(friend, soicialMap, callback);
+//         }
+//     }
+// }
 
 // function breadthFirstSearch(person, soicialMap, callback) {
 //     let stack = [];
@@ -60,7 +77,13 @@ soicialMap.set(minh, [tung]);
 //     }
 //     console.log(checkedPerson);
 // }
-let phoneNumber = prompt(`Please type your phone number`);
+
+let str = `0978155603 `;
+for (let [key, value] of soicialMap) {
+    str += `${key.phoneNumber} \n`;
+}
+
+let phoneNumber = prompt(`Please type your phone number in this list ${str}`);
 
 function findPerson(phoneNumber) {
     let person = null;
