@@ -1,0 +1,17 @@
+Bài tập về nhà (Deadline: 13h ngày 2/11/2020)
+1. (OOP - 7đ) Hãy viết chương trình "Quản lý danh bạ" với các chức năng sau:
+    - Thêm, sửa, xóa người liên lạc
+    - Liệt kê danh bạ
+    - Tìm người liên lạc theo tên hoặc số điện thoại
+    * Người liên lạc bao gồm thông tin cơ bản: tên, số điện thoại, cơ quan làm việc, ...
+2. (OOP - 3đ) Cho 1 tập gồm N người. 
+    Mỗi người gồm thông tin: tên, tuổi, số điện thoại. 
+    Biết rằng mỗi người có ít nhất 1 mối quan hệ bạn bè với 1 người khác.
+    Nhập vào từ bàn phím một số điện thoại bất kì.
+    Hãy tìm tất cả bạn bè của người có số điện thoại vừa nhập vào?
+    Gợi ý: bài này sử dụng cấu trúc dữ liệu ĐỒ THỊ. (Tham khảo CTDL Đồ thị:
+     https://viblo.asia/.../cau-truc-du-lieu-va-giai-thuat-cau...)
+        Mỗi người là 1 đỉnh trong đồ thị
+        Mối quan hệ bạn bè được thể hiện là cạnh trong đồ thị
+3. (Giải ngố - Thích thì làm) Cho 3 điểm A(x1, y1), B(x2, y2), C(x3, y3) trên mặt phẳng tọa độ Oxy. 
+Viết chương trình kiểm tra xem 3 điểm A, B, C có thẳng hàng không 

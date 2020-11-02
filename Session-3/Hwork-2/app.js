@@ -1,13 +1,13 @@
-import { DocumentCase } from "./DocumentCase.js";
-import { EBook } from "./EBook.js";
-import { HardCopy } from "./HardCopy.js";
+import DocumentCase from "./DocumentCase.js";
+import EBook from "./EBook.js";
+import HardCopy from "./HardCopy.js";
 
 let myCase = new DocumentCase(0, `MyCase`, [
-    new EBook(0, `Doi Gio Hu`, `Bill`, 50000, 2020, 15 / 100),
-    new EBook(1, `Khong Gia Dinh`, `Jack`, 50000, 2000, 5 / 100),
+    new EBook(`Doi Gio Hu`, `Bill`, 50000, 2020, 15 / 100),
+    new EBook(`Khong Gia Dinh`, `Jack`, 50000, 2000, 5 / 100),
 
-    new HardCopy(2, `Doi Gio Hu - copy`, `Bill`, 50000, 2020, `Doi Gio Hu`),
-    new HardCopy(3, `Khong Gia Dinh - copy`, `Jack`, 50000, 2000, `Khong Gia Dinh`),
+    new HardCopy(`Doi Gio Hu - copy`, `Bill`, 50000, 2020, `Doi Gio Hu`),
+    new HardCopy(`Khong Gia Dinh - copy`, `Jack`, 50000, 2000, `Khong Gia Dinh`),
 ], `Hoang Nam`, 2020);
 
 myCase.findDocuments(`doi gio hu`);
@@ -19,8 +19,7 @@ console.log(`---------- all book info ---------`);
 myCase.documents.map((book) => {
     book.info;
 });
-myCase.deleteDocument(1);
-myCase.updateDocument(2, new EBook(2, `Khong Gia Dinh 2`, `Jack 2`, 100000, 2021, 15 / 100));
+
 console.log(`---------- all book info ---------`);
 myCase.documents.map((book) => {
     book.info;

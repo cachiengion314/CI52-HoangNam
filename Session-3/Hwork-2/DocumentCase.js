@@ -1,19 +1,23 @@
-export class DocumentCase {
+export default class DocumentCase {
     id;
     name;
     documents;
     owner;
     dateModified;
-    constructor(id, name, documents, owner, dateModified) {
-        this.id = id;
+    constructor(name, documents, owner) {
         this.name = name;
         this.documents = documents;
         this.owner = owner;
-        this.dateModified = dateModified;
+        this.dateModified = new Date().toISOString();
+        this.id = uuid.v4();
     }
     addDocument(document) {
-        // document is object of Document
-        this.documents.push(document);
+        // document is object of Document // tính chất đa hình của oop: mọi instance của con chắc chắn là cha nhưng cha không phải là con
+        if (document instanceof Document) { // foreach không break được.
+            this.documents.push(document);
+        } else {
+            console.log(`Sai thong so`);
+        }
     }
     findDocuments(name) {
         // tìm tất cả document theo tên
@@ -30,18 +34,26 @@ export class DocumentCase {
         // xóa 1 document theo id
         let str = ``;
         let allBookWithGivenId = this.filterAnArray((book) => {
-            return book.id == id;
+            return this.isStringInString(id, book.id);
         }, this.documents);
         allBookWithGivenId.map((book) => {
             str += book.name + ` `;
             this.documents.splice(this.documents.indexOf(book), 1);
         });
+
+        // let foundIndex = this.documents.findIndex((item) => {
+        //     return this.document.id == id;
+        // });
+        // if (foundIndex) {
+        //     this.documents.splice(foundIndex, 1);
+        // }
+
         console.log(`Delete all with id: "${id}" and name: "${str}" is done`);
     }
     showDocuments() {
         // in ra console các documents hiện có
         console.log(`Name of all documents is below:`);
-        this.documents.map((book) => {
+        this.documents.forEach((book) => {
             console.log(book.name);
         });
     }
@@ -55,6 +67,14 @@ export class DocumentCase {
             str += book.name + ` `;
             this.documents[this.documents.indexOf(book)] = data;
         });
+
+        // let found = this.documents.find((item) => {
+        //     return item.id == id;
+        // });
+        // if (found) {
+        //     found.info = data;
+        // }
+
         console.log(`Update all with id: "${id}" and name: "${str}" become ${data.name} is done!`);
     }
     filterAnArray(callback, array) {
