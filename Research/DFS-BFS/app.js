@@ -1,4 +1,4 @@
-class CheckedNode {
+class TractedNode {
     constructor() {
         this.checkedNodes = [];
     }
@@ -48,10 +48,9 @@ soicialMap.set(mi, [duc, khoan]);
 soicialMap.set(khoan, [mi, tung]);
 soicialMap.set(minh, [tung]);
 
-let visited = new CheckedNode();
+let visited = new TractedNode();
 
 function depthFirstSearch(person, soicialMap, callback) {
-    // let visited = new CheckedNode();
     visited.add(person);
     callback(person);
     for (let friend of soicialMap.get(person)) {
@@ -63,7 +62,7 @@ function depthFirstSearch(person, soicialMap, callback) {
 
 function breadthFirstSearch(person, soicialMap, callback) {
     let stack = [];
-    let trackedPerson = new CheckedNode();
+    let trackedPerson = new TractedNode();
     stack.push(person);
 
     while (stack.length > 0) {
@@ -87,3 +86,13 @@ breadthFirstSearch(trang, soicialMap, (item) => {
 depthFirstSearch(trang, soicialMap, (person) => {
     console.log(`person name:`, person.name);
 });
+
+let hashSet = new Set([3, 4, 5, 6, 34]);
+hashSet.add(9999)
+console.log(hashSet);
+// test in operator
+let a = { nam: "nam", hung: 'hung' };
+let str = "nam";
+str in a ? console.log(`haha you're funny!`) : console.log(`its not funny!`);
+delete a.hung;
+console.log(a);

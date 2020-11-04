@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <meme-container attrName="hey heyhey" image="https://i.ytimg.com/vi/SucYEleEKDw/maxresdefault.jpg" date-modified="2020-11-02" description="fun"></meme-container>
+
+</body>
+
+<template id="meme-container-template">
+    <link rel="stylesheet" href="">
+    <style>
+        .meme-photo{
+            width: 400px;
+            height: 400px;
+        }
+        .meme-name{
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+    <div class="meme-container">
+        <div class="meme-name">Nà ní</div>
+        <img src="https://i.pinimg.com/474x/9f/bd/3d/9fbd3d851766dce395337a0fa4b46eec.jpg" alt="" class="meme-photo">
+        <div class="meme-date-modified">2020/10/30</div>
+        <div class="meme-description">Đây là ảnh có con chó nó kêu "Nà ní"</div>
+    </div>
+</template>
+
+<script src="./app.js" type="module"></script>
+
+</html>
