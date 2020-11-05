@@ -1,0 +1,16 @@
+* {
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+manga-book-block {
+    margin-right: 27px;
+    margin-bottom: 21px;
+}
+
+.books-block {
+    margin: 5% auto;
+    width: 1135px;
+    display: flex;
+    flex-wrap: wrap;
+}

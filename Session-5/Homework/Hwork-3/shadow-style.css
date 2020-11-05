@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+img {
+    width: 200px;
+    height: 289px;
+}
+
+.manga-book-block {
+    width: 200px;
+    height: 428px;
+    box-shadow: 7px 7px 7px darkgrey;
+}
+
+.tags-block {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.tag {
+    width: 95px;
+    border: 1px gray solid;
+    margin: 1px;
+    text-align: center;
+    color: gray;
+}
+
+.title-text {
+    height: 40px;
+    font-size: 17px;
+    color: steelblue;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+.date-text {
+    text-align: right;
+    margin: 1px 5px;
+    color: slateblue;
+}
+
+.price-text {
+    text-align: right;
+    margin: 1px 5px;
+    font-size: 17px;
+    font-weight: bold;
+    color: goldenrod;
+}
+
+.amount-text {
+    text-align: right;
+    margin: 1px 5px;
+}
