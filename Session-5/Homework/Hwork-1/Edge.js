@@ -1,11 +1,11 @@
-import Vertice from "./Vertice.js";
+import Person from "./Person.js";
 
 export default class Edge {
-    constructor(vertice1, vertice2) {
-        if (!vertice1 instanceof Vertice || !vertice2 instanceof Vertice) {
+    constructor(per1, per2) {
+        if (!per1 instanceof Person || !per2 instanceof Person) {
             throw new Error(`This thing is not right!`);
         }
-        this.verticeHead = vertice1;
-        this.verticeTail = vertice2;
+        this.verticeHead = per1;
+        this.verticeTail = per2;
     }
 }
