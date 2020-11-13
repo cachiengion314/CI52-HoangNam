@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-share-stories</title>
+</head>
+
+<body>
+    <register-form></register-form>
+
+</body>
+
+<template id="input-wrapper-template">
+    <link rel="stylesheet" href="./css/input-wrapper.css">
+    <div id="input-wrapper">
+        <input type="text" id="input-main" placeholder="Main Input">
+        <div id="input-error"></div>
+    </div>
+</template>
+
+<template id="register-form-template">
+    <link rel="stylesheet" href="./css/register-form.css">
+   <form id="register-form" action="http://google.com"> 
+    <h1>dang ky tai khoan</h1>
+    <input-wrapper id="name" label="Ten dang ky" type="text" error="nhap vao ten dang ky" value="nhap vao ten"></input-wrapper>
+    <input-wrapper id="email" label="Email" type="text" error="nhap vao email" value="email"></input-wrapper>
+    <input-wrapper id="password" label="Mat Khau" type="text" error="nhap vao mat khau" value="mat khau"></input-wrapper>
+    <input-wrapper id="password-comfirmation" label="Ten dang ky" type="text" error="nhap vao mat khau 2" value="mat khau 2"></input-wrapper>
+    <button id="register-button">Dang ky</button>
+   </form>
+</template>
+
+
+<script src="./js/app.js" type="module"></script>
+
+</html>

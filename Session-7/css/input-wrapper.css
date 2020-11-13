@@ -1,0 +1,19 @@
+[type="text"] {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    color: #858585;
+    background-color: #B3DFD4;
+}
+
+#input-error {
+    color: red;
+}
+
+#input-wrapper {
+    margin-bottom: 10px;
+}
