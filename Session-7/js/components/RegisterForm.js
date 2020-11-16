@@ -1,5 +1,6 @@
 import { checkInputWrapperValue } from "../utils.js";
-
+import { validateEmail } from "../utils.js";
+import { validateStrongPassword } from "../utils.js";
 
 const $template = document.getElementById(`register-form-template`);
 class RegisterForm extends HTMLElement {
@@ -9,7 +10,6 @@ class RegisterForm extends HTMLElement {
         this.shadowRoot.appendChild($template.content.cloneNode(true));
         this.$registerForm = this.shadowRoot.getElementById(`register-form`);
 
-        console.log(this);
         this.$name = this.shadowRoot.getElementById(`name`);
         this.$email = this.shadowRoot.getElementById(`email`);
         this.$password = this.shadowRoot.getElementById(`password`);
@@ -29,19 +29,26 @@ class RegisterForm extends HTMLElement {
             let password = this.$password.value;
             let passwordComfirmation = this.$passwordComfirmation.value;
 
-            checkInputWrapperValue(this.$name, function() {
-                // console.log(value);
-                return true;
-            }, `Nhap vao ten`);
+            let isPassed = checkInputWrapperValue(this.$name, function(value) {
+                    return value == ``;
+                }, `Nhap vao ten`) &
+                checkInputWrapperValue(this.email, function(value) {
+                    return value == `` || !validateEmail(value);
+                }, `Email khong hop le`)
 
-            // kiểm tra dữ liệu
-            console.log(this);
-            console.log(this.$name.value);
-            console.log(this.$email.value);
-            console.log(this.$password.value);
-            console.log(this.$passwordComfirmation.value);
+            &
+            checkInputWrapperValue(this.$password, function(value) {
+                return value == `` || !validateStrongPassword(value);
+            }, `mat khau khong hop ly`)
 
-            console.log(`submit form dang ky`);
+            &
+            checkInputWrapperValue(this.$passwordComfirmation, function(value) {
+                return value == `` || value != password;
+            }, `xac nhan mat khau khong hop le`);
+            // kiem tra tong the
+            if (isPassed) {
+                alert(`dang ky thanh cong`);
+            }
         }
     }
 
